@@ -9,24 +9,26 @@
 
 import re, pyperclip
 
-# regex for email addresses that will handle
-#   (.), (+), (_) characters
+# regex for email addresses
 
 
-emailRegex = re.compile(r'''
-[a-zA-Z0-9]{1,1}            # makes sure it starts with alphanum
-[a-zA-Z0-9._-]*[a-zA-Z0-9]+ # username
-@                           # @ symbol
-[a-zA-Z0-9.-]+[.]\w+        # domain and top doomain name
-''', re.VERBOSE)
+def scrapEmails(copiedText):
+    emailRegex = re.compile(r'''
+    [a-zA-Z0-9]{1,1}            # makes sure it starts with alphanum
+    [a-zA-Z0-9._-]*[a-zA-Z0-9]+ # username
+    @                           # @ symbol
+    [a-zA-Z0-9.-]+[.]\w+        # domain and top doomain name
+    ''', re.VERBOSE)
 
-text = pyperclip.paste()
+    extractedEmail = emailRegex.findall(copiedText)
 
-extractedEmail = emailRegex.findall(text)
+    results = '\n'.join(extractedEmail)
 
-results = '\n'.join(extractedEmail)
-
-pyperclip.copy(results)
-
-# DEBUGGING:
-# print(extractedEmail)
+    pyperclip.copy(results) # copy the results to the clipboard
+    
+    if results is None: # check if the result is empty (no email found)
+        return "No email has been found."
+    
+    return results
+    # DEBUGGING:
+    # print(extractedEmail)
