@@ -26,7 +26,7 @@ def scrapEmails(copiedText):
 
     pyperclip.copy(results) # copy the results to the clipboard
     
-    if results is None: # check if the result is empty (no email found)
+    if not results: # check if the result is empty (no email found)
         return "No email has been found."
     
     return results
