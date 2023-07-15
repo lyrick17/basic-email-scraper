@@ -3,6 +3,10 @@ This is simple python program designed with PyQT6 GUI that will scrap emails fro
 and then will replace the copied text with lists of emails (one email per line).
 Thus, after running the program, your copied text will become list of emails you can paste anywhere.
 
+## Sample Preview
+![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](https://github.com/lyrick17/basic-email-scraper/blob/with-ui/assets/samplepreview.png?raw=true)
+
+
 ## Notes:
 - Make sure that you have copied the document where you want to scrap the emails
 - Click the Update Button to see the preview of current copied text, then click Scrap Email Button to perform the program
